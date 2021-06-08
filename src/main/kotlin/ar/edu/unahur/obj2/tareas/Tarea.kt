@@ -18,7 +18,7 @@ class DeIntegracion(responsable: Empleado, val tareas: List<Tarea>):Tarea(respon
     override fun horasNecesariasParaFinalizacion()= this.horasNecesariasDeSubtareas() + this.horasDeReunionDePlanificacion()
     fun horasNecesariasDeSubtareas() = tareas.sumBy { it.horasNecesariasParaFinalizacion() }
     fun horasDeReunionDePlanificacion() = this.horasNecesariasDeSubtareas() / 8
-    override fun costoDeTarea()= this.costosDeSubtareas() + this.bonusDeResponsable()
+    override fun costoDeTarea()= this.costosDeSubtareas() + this.bonusDeResponsable().toInt()
     override fun nominaDeEmpleados() = this.nominaDeEmpleadosDeSubtareas().plusElement(responsable)
     fun nominaDeEmpleadosDeSubtareas() = tareas.map { it.nominaDeEmpleados() }.flatten()
     fun costosDeSubtareas() = tareas.sumByDouble { it.costoDeTarea() }

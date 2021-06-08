@@ -36,6 +36,12 @@ class TareaTest : DescribeSpec({
         it("tiene una nomina de 7 empleados (incluidos los responsables") {
           tareaDeIntegracion2.nominaDeEmpleados().shouldContainExactlyInAnyOrder(empleado1, empleado2, empleado3, responsable1, responsable2, responsable3, responsable4)
         }
+        it("el costo de la tarea de integracion mas sus subtareas es de 2562"){
+          tareaDeIntegracion2.costoDeTarea().shouldBe(2562)
+        }
+        it("el tiempo necesario para realizar la tarea de integracion2 es de 5 horas "){
+          tareaDeIntegracion2.horasNecesariasParaFinalizacion().shouldBe(5)
+        }
       }
     }
   }
